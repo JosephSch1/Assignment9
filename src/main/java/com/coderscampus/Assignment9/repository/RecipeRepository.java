@@ -9,7 +9,7 @@ import com.coderscampus.Assignment9.recipe.Recipe;
 
 @Repository
 public class RecipeRepository {
-	List<Recipe> savedRecipes = new ArrayList<>(100);
+	List<Recipe> savedRecipes = new ArrayList<>();
 	
 	public List<Recipe> getRecipe () {
 		return savedRecipes;

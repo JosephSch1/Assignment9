@@ -20,7 +20,7 @@ public class Controller {
 	
 	@GetMapping("/gluten-free")
 	public List<Recipe> getGlutenFree () throws IOException {
-		List<Recipe> gluten = service.allRecipes().stream()
+		List<Recipe> gluten = service.sortableList().stream()
 							  .filter(Recipe::getGlutenFree)
 							  .collect(Collectors.toList());
 		return gluten;
@@ -28,7 +28,7 @@ public class Controller {
 	
 	@GetMapping("/vegan")
 	public List<Recipe> getVegan () throws IOException {
-		List<Recipe> vegan = service.allRecipes().stream()
+		List<Recipe> vegan = service.sortableList().stream()
 							 .filter(Recipe::getVegan)
 							 .collect(Collectors.toList());
 		return vegan;
@@ -36,7 +36,7 @@ public class Controller {
 	
 	@GetMapping("/vegan-and-gluten-free")
 	public List<Recipe> getVeganAndGlutenFree () throws IOException {
-		List<Recipe> veganAndGlutenFree = service.allRecipes().stream()
+		List<Recipe> veganAndGlutenFree = service.sortableList().stream()
 							 .filter(Recipe::getVegan)
 							 .filter(Recipe::getGlutenFree)
 							 .collect(Collectors.toList());
@@ -45,7 +45,7 @@ public class Controller {
 	
 	@GetMapping("/vegetarian")
 	public List<Recipe> getVegetarian () throws IOException {
-		List<Recipe> vegetarian = service.allRecipes().stream()
+		List<Recipe> vegetarian = service.sortableList().stream()
 							 .filter(Recipe::getVegetarian)
 							 .collect(Collectors.toList());
 		return vegetarian;
@@ -53,7 +53,7 @@ public class Controller {
 	
 	@GetMapping("/all-recipes")
 	public List<Recipe> getAllRecipes () throws IOException {
-		List<Recipe> all = service.allRecipes();
+		List<Recipe> all = service.sortableList();
 		return all;
 	}
 }

@@ -3,7 +3,6 @@ package com.coderscampus.Assignment9.service;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.csv.CSVFormat;
@@ -27,7 +26,8 @@ public class FileService {
 				"Instructions", "Preparation Minutes", "Price Per Serving",
 				"Ready In Minutes", "Servings", "Spoonacular Score", "Title", "Vegan", "Vegetarian")
 				.withSkipHeaderRecord()
-				.withIgnoreSurroundingSpaces();
+				.withIgnoreSurroundingSpaces(); //The CSVFormat will allow us to use the maven CSV reader 
+		// dependency to properly parse the recipes.txt file
 		
 		Iterable<CSVRecord> records = format.parse(in);
 		for (CSVRecord record : records) {
@@ -58,10 +58,11 @@ public class FileService {
 			recipe.setVegetarian(vegetarian);
 		
 		repository.getRecipe().add(recipe);
+		// here, we iterate through the recipes.txt and populate a recipes object based on the items in the file.
 		}
 		return repository.getRecipe();
 	}
-	public List<Recipe> allRecipes () throws IOException {
+	public List<Recipe> sortableList () throws IOException {
 		if (repository.getRecipe().size() == 0) {
 			return readFile();
 		}
