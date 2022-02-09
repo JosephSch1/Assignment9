@@ -1,4 +1,4 @@
-package com.coderscampus.Assignment9;
+package com.coderscampus.assignment9test;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
